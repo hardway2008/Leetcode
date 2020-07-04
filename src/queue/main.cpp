@@ -27,7 +27,23 @@
  * 	Fax: (201) 236-3290
 */ 
 
+#include <iostream>
+#include <thread>
+#include <queue>
+
+void func(){
+	std::cout << "Hello from another thread!" << std::endl;
+}
+
 int main() 
 {
+	std::thread t(func);
+	std::cout << "hello world!" << std::endl;
+	std::queue<int> qin;
+	qin.push(1);
+	
+
+	t.join();
+
 	return 0;
 }
